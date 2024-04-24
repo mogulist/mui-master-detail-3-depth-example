@@ -46,7 +46,26 @@ function DetailPanelContent({ row: rowProp }: { row: Customer }) {
   );
 }
 
-const columns: GridColDef<(typeof rows)[number]>[] = [
+export default function ItemPanel() {
+  const getDetailPanelContent = React.useCallback<
+    NonNullable<DataGridProProps["getDetailPanelContent"]>
+  >(({ row }) => <DetailPanelContent row={row} />, []);
+
+  const getDetailPanelHeight = React.useCallback(() => 400, []);
+
+  return (
+    <Box sx={{ width: "100%", height: 900 }}>
+      <DataGridPro
+        columns={itemColumns}
+        rows={rows}
+        getDetailPanelHeight={getDetailPanelHeight}
+        getDetailPanelContent={getDetailPanelContent}
+      />
+    </Box>
+  );
+}
+
+const itemColumns: GridColDef<(typeof rows)[number]>[] = [
   { field: "id", headerName: "Order ID" },
   { field: "customer", headerName: "Customer", width: 200 },
   { field: "date", type: "date", headerName: "Placed at" },
@@ -65,22 +84,3 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     },
   },
 ];
-
-export default function BasicDetailPanels() {
-  const getDetailPanelContent = React.useCallback<
-    NonNullable<DataGridProProps["getDetailPanelContent"]>
-  >(({ row }) => <DetailPanelContent row={row} />, []);
-
-  const getDetailPanelHeight = React.useCallback(() => 400, []);
-
-  return (
-    <Box sx={{ width: "100%", height: 900 }}>
-      <DataGridPro
-        columns={columns}
-        rows={rows}
-        getDetailPanelHeight={getDetailPanelHeight}
-        getDetailPanelContent={getDetailPanelContent}
-      />
-    </Box>
-  );
-}
