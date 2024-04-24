@@ -2,10 +2,17 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
-import { DataGridPro } from "@mui/x-data-grid-pro";
+import { DataGridPro, DataGridProProps } from "@mui/x-data-grid-pro";
 import { type Customer } from "./itemData";
+import { ProductsPanel } from "./ProductsPanel";
 
 export function ItemOptionPanel({ row: rowProp }: { row: Customer }) {
+  const getDetailPanelContent = React.useCallback<
+    NonNullable<DataGridProProps["getDetailPanelContent"]>
+  >(({ row }) => <ProductsPanel row={row} />, []);
+
+  const getDetailPanelHeight = React.useCallback(() => 400, []);
+
   return (
     <Stack
       sx={{ py: 2, height: "100%", boxSizing: "border-box" }}
@@ -16,7 +23,7 @@ export function ItemOptionPanel({ row: rowProp }: { row: Customer }) {
           <DataGridPro
             density="compact"
             columns={[
-              { field: "name", headerName: "아이템옵션", flex: 1 },
+              { field: "itemOptionName", headerName: "아이템옵션", flex: 1 },
               {
                 field: "quantity",
                 headerName: "Quantity",
@@ -34,6 +41,8 @@ export function ItemOptionPanel({ row: rowProp }: { row: Customer }) {
             rows={rowProp.itemOptions}
             sx={{ flex: 1 }}
             hideFooter
+            getDetailPanelHeight={getDetailPanelHeight}
+            getDetailPanelContent={getDetailPanelContent}
           />
         </Stack>
       </Paper>

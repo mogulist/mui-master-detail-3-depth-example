@@ -14,7 +14,7 @@ function generateProducts() {
   const quantity = randomInt(1, 5);
   return [...Array(quantity)].map((_, index) => ({
     id: index,
-    name: randomCommodity(),
+    productsName: randomCommodity(),
     quantity: randomInt(1, 5),
     unitPrice: randomPrice(1, 1000),
   }));
@@ -24,7 +24,7 @@ function generateItemOptions() {
   const quantity = randomInt(1, 5);
   return [...Array(quantity)].map((_, index) => ({
     id: index,
-    name: randomCommodity(),
+    itemOptionName: randomCommodity(),
     quantity: randomInt(1, 5),
     unitPrice: randomPrice(1, 1000),
     products: generateProducts(),

@@ -16,7 +16,7 @@ export function ProductsPanel({ row: rowProp }: { row: Customer }) {
           <DataGridPro
             density="compact"
             columns={[
-              { field: "name", headerName: "Product", flex: 1 },
+              { field: "productsName", headerName: "Product", flex: 1 },
               {
                 field: "quantity",
                 headerName: "Quantity",
