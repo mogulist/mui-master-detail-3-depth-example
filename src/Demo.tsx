@@ -74,7 +74,7 @@ export default function BasicDetailPanels() {
   const getDetailPanelHeight = React.useCallback(() => 400, []);
 
   return (
-    <Box sx={{ width: "100%", height: 400 }}>
+    <Box sx={{ width: "100%", height: 900 }}>
       <DataGridPro
         columns={columns}
         rows={rows}
