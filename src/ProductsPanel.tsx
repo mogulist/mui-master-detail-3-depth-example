@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import { DataGridPro } from "@mui/x-data-grid-pro";
 import { type Customer } from "./itemData";
 
-export function ItemOptionPanel({ row: rowProp }: { row: Customer }) {
+export function ProductsPanel({ row: rowProp }: { row: Customer }) {
   return (
     <Stack
       sx={{ py: 2, height: "100%", boxSizing: "border-box" }}
@@ -16,7 +16,7 @@ export function ItemOptionPanel({ row: rowProp }: { row: Customer }) {
           <DataGridPro
             density="compact"
             columns={[
-              { field: "name", headerName: "아이템옵션", flex: 1 },
+              { field: "name", headerName: "Product", flex: 1 },
               {
                 field: "quantity",
                 headerName: "Quantity",
@@ -31,7 +31,7 @@ export function ItemOptionPanel({ row: rowProp }: { row: Customer }) {
                 valueGetter: (value, row) => row.quantity * row.unitPrice,
               },
             ]}
-            rows={rowProp.itemOptions}
+            rows={rowProp.products}
             sx={{ flex: 1 }}
             hideFooter
           />
