@@ -10,6 +10,7 @@
     "@types/react-dom": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-script": "^2.0.5",
     "typescript": "latest"
   },
   "description": "https://github.com/mui/mui-x/blob/v7.3.0/docs/data/data-grid/master-detail/BasicDetailPanels.tsx",
@@ -22,5 +23,17 @@
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
