@@ -31,7 +31,7 @@ export function ItemOptionPanel({ row: rowProp }: { row: Customer }) {
                 valueGetter: (value, row) => row.quantity * row.unitPrice,
               },
             ]}
-            rows={rowProp.products}
+            rows={rowProp.itemOptions}
             sx={{ flex: 1 }}
             hideFooter
           />
