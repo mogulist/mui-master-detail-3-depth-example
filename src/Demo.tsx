@@ -9,12 +9,12 @@ import {
 } from "@mui/x-data-grid-pro";
 
 import { rows, type Customer } from "./itemData";
-import { DetailPanelContent } from "./ItemOptionPanel";
+import { ItemOptionPanel } from "./ItemOptionPanel";
 
 export default function ItemPanel() {
   const getDetailPanelContent = React.useCallback<
     NonNullable<DataGridProProps["getDetailPanelContent"]>
-  >(({ row }) => <DetailPanelContent row={row} />, []);
+  >(({ row }) => <ItemOptionPanel row={row} />, []);
 
   const getDetailPanelHeight = React.useCallback(() => 400, []);
 

@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import { DataGridPro } from "@mui/x-data-grid-pro";
 import { type Customer } from "./itemData";
 
-export function DetailPanelContent({ row: rowProp }: { row: Customer }) {
+export function ItemOptionPanel({ row: rowProp }: { row: Customer }) {
   return (
     <Stack
       sx={{ py: 2, height: "100%", boxSizing: "border-box" }}
